@@ -1,0 +1,172 @@
+/* ChatWindow.css */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff2f2; /* lightest palette color */
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+}
+.chat-input {
+  width: 100%;
+  min-height: 80px;
+  max-height: 150px; /* optional max height */
+  padding: 8px 12px;
+  resize: none; /* user can't manually resize if you want */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.recording {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+
+.chat-window .messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 10px;
+}
+
+.chat-window .bubble {
+  max-width: 70%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  line-height: 1.6;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
+.chat-window .bubble.user {
+  align-self: flex-end;
+  background-color: #7886c7;
+  color: white;
+  font-weight: 500;
+}
+
+.chat-window .bubble.ai {
+  align-self: flex-start;
+  background-color: #a9b5df;
+  color: #2d336b;
+  font-weight: 500;
+}
+
+.chat-window .typing {
+  font-style: italic;
+  color: #2d336b;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.chat-window .input-box {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #a9b5df;
+}
+
+.chat-window .input-box input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #a9b5df;
+  font-size: 16px;
+}
+
+.chat-window .input-box button {
+  padding: 12px 20px;
+  background-color: #7886c7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+/* system bubble like ChatGPT */
+.bubble.system {
+  background-color: #f5f5f5;
+  color: #333;
+  font-style: italic;
+  text-align: center;
+  padding: 8px 12px;
+  margin: 6px auto;
+  border-radius: 12px;
+  max-width: 80%;
+  font-size: 0.9rem;
+}
+
+/* existing bubbles */
+.bubble.user {
+  background-color: #0084ff;
+  color: white;
+  align-self: flex-end;
+  border-radius: 12px 12px 0 12px;
+}
+
+.bubble.ai {
+  background-color: #e5e5ea;
+  color: black;
+  align-self: flex-start;
+  border-radius: 12px 12px 12px 0;
+}
+
+.typing {
+  font-style: italic;
+  color: #888;
+  margin: 4px 0;
+}
+
+
+/* COPY BUTTON */
+.copy-btn {
+  margin-top: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #d1d5db;
+}
+
+.copy-btn.copied {
+  background: #22c55e;
+  color: white;
+}
+.chat-window .input-box button:hover {
+  background-color: #2d336b;
+}
+.bubble.system {
+  background-color: #f4f7ff;
+  border-left: 4px solid #4a6cf7;
+  font-size: 14px;
+  color: #333;
+}
+
+
+@media (max-width: 768px) {
+  .chat-window .bubble {
+    max-width: 90%;
+    font-size: 15px;
+  }
+
+  .chat-window .input-box input,
+  .chat-window .input-box button {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+}

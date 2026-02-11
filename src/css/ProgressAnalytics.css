@@ -1,0 +1,34 @@
+.analytics-container {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.back-btn {
+  background: #6b5b95;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.analytics-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 30px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #6b5b95;
+}

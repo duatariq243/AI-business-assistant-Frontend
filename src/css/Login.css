@@ -1,0 +1,72 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  font-family: "Inter", sans-serif;
+}
+
+.auth-page form {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-page h2 {
+  text-align: center;
+  color: #2d336b;
+}
+
+.auth-page input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #a9b5df;
+  font-size: 16px;
+}
+
+.auth-page button {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #7886c7;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-page button:hover {
+  background-color: #2d336b;
+}
+
+.error-message {
+  color: #c72d2d;
+  text-align: center;
+  font-weight: 500;
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.signup-link {
+  color: #7886c7;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.signup-link:hover {
+  color: #2d336b;
+}
