@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import ChatSidebar from "../components/ChatSidebar";
 import ChatWindow from "../components/ChatWindow";
@@ -9,7 +9,7 @@ function Dashboard() {
   const { chatId } = useParams();
 
   // Example chat state
-  const [chats, setChats] = useState([
+  const [chats] = useState([
     { id: "baking-business", title: "Baking Business" },
     { id: "marketing-business", title: "Marketing Business" }
   ]);

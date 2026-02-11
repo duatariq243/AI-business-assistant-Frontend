@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getChats, createChat, deleteChat, renameChat } from "../services/api"; // ensure renameChat exists in API
 import { useNavigate, useParams } from "react-router-dom";
 import "../css/ChatSidebar.css";
-import { Link } from "react-router-dom";
 
 function ChatSidebar() {
   const [chats, setChats] = useState([]);
