@@ -11,9 +11,7 @@ function ChatSidebar() {
   const { chatId } = useParams();
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    fetchChats();
-  }, []);
+  
 
   const fetchChats = async () => {
     try {
