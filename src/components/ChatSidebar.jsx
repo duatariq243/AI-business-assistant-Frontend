@@ -3,8 +3,7 @@ import { getChats, createChat, deleteChat, renameChat } from "../services/api"; 
 import { useNavigate, useParams } from "react-router-dom";
 import "../css/ChatSidebar.css";
 
-function ChatSidebar() {
-  const [chats, setChats] = useState([]);
+function ChatSidebar({ chats, setChats }) {
   const [editingId, setEditingId] = useState(null); // chat being renamed
   const [newTitle, setNewTitle] = useState("");
   const navigate = useNavigate();
@@ -22,11 +21,11 @@ function ChatSidebar() {
     }
   };
 
-  const handleCreateChat = async () => {
+   const handleCreateChat = async () => {
     try {
       const res = await createChat({}, token);
+      setChats(prev => [res.data, ...prev]); // add new chat
       navigate(`/dashboard/${res.data.id}`);
-      fetchChats();
     } catch (err) {
       console.error("Failed to create chat:", err);
     }

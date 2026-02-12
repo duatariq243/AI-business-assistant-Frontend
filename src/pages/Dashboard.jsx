@@ -1,20 +1,36 @@
-import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import ChatSidebar from "../components/ChatSidebar";
 import ChatWindow from "../components/ChatWindow";
+import { getChats } from "../services/api"; // fetch chats from backend
 import "../css/Dashboard.css";
 
 function Dashboard() {
   const { chatId } = useParams();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
-  // Example chat state
-  const [chats] = useState([
-    { id: "baking-business", title: "Baking Business" },
-    { id: "marketing-business", title: "Marketing Business" }
-  ]);
+  const [chats, setChats] = useState([]);
 
-  // Find the selected chat
+  useEffect(() => {
+    const fetchChats = async () => {
+      try {
+        const res = await getChats(token);
+        setChats(res.data);
+
+        // Auto-select first chat if no chatId in URL
+        if (!chatId && res.data.length > 0) {
+          navigate(`/dashboard/${res.data[0].id}`);
+        }
+      } catch (err) {
+        console.error("Failed to fetch chats:", err);
+      }
+    };
+
+    fetchChats();
+  }, [chatId, navigate, token]);
+
   const selectedChat = chats.find(c => c.id === chatId);
 
   return (
@@ -25,16 +41,13 @@ function Dashboard() {
       {selectedChat && (
         <div className="chat-item">
           <h3>{selectedChat.title}</h3>
-          <Link to={`/dashboard/${selectedChat.id}/analytics`}>
-            <button>View Progress & Analytics</button>
-          </Link>
         </div>
       )}
 
       <div className="dashboard-container">
         {/* LEFT – CHAT LIST */}
         <div className="dashboard-sidebar">
-          <ChatSidebar chats={chats} />
+          <ChatSidebar chats={chats} setChats={setChats} />
         </div>
 
         {/* RIGHT – CHAT WINDOW */}
