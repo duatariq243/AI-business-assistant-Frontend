@@ -12,6 +12,17 @@ function Dashboard() {
   const token = localStorage.getItem("token");
 
   const [chats, setChats] = useState([]);
+  const [loadingChats, setLoadingChats] = useState(true);
+
+useEffect(() => {
+  const fetchChats = async () => {
+    const res = await getChats(token);
+    setChats(res.data);
+    setLoadingChats(false);
+  };
+  fetchChats();
+}, [token]);
+
 
   useEffect(() => {
     const fetchChats = async () => {
@@ -30,7 +41,7 @@ function Dashboard() {
 
     fetchChats();
   }, [chatId, navigate, token]);
-
+     
   const selectedChat = chats.find(c => c.id === chatId);
 
   
