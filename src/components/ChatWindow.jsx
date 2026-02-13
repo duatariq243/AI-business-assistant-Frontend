@@ -3,7 +3,7 @@ import { getChatMessages, sendMessage } from "../services/api";
 import ReactMarkdown from "react-markdown";
 import "../css/ChatWindow.css";
 
-function ChatWindow({ chatId , refreshChats }) {
+function ChatWindow({ chatId , refreshChats,setChats }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -63,6 +63,15 @@ const handleSend = async () => {
       { ...res.data.userMessage, role: "user" },
       { ...res.data.aiMessage, role: "ai" },
     ]);
+if (res.data.chatTitle) {
+  setChats(prevChats =>
+    prevChats.map(chat =>
+      chat.id === Number(chatId)
+        ? { ...chat, title: res.data.chatTitle }
+        : chat
+    )
+  );
+}
 
     //  Now res exists — safe to check summary
     if (res.data.businessSummary) {

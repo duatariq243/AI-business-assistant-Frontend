@@ -33,6 +33,8 @@ function Dashboard() {
 
   const selectedChat = chats.find(c => c.id === chatId);
 
+  
+
   return (
     <div className="dashboard-page">
       <Header />
