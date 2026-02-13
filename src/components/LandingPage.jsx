@@ -13,17 +13,24 @@ const LandingPage = () => {
     <div className="landing-container">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-content">
-          <h1>Grow Your Business with AI</h1>
-          <p>
-            Our AI Business Assistant helps you make smarter decisions, automate tasks,
-            and increase productivity. Let us guide your business to the next level.
-          </p>
-          <button className="cta-button" onClick={handleCTA}>
-            Get Started with AI
-          </button>
-        </div>
-      </section>
+  <div className="hero-content">
+    <h1>Grow Your Business with AI</h1>
+    <p>
+      Our AI Business Assistant helps you make smarter decisions, automate tasks,
+      and increase productivity. Let us guide your business to the next level.
+    </p>
+
+    {/* New Info Text */}
+    <p style={{ fontSize: "16px", color: "white", marginTop: "15px" }}>
+      As you chat with the AI, you’ll be able to track your business progress, revenue trends, customer growth, and insights in real-time.
+    </p>
+
+    <button className="cta-button" onClick={handleCTA}>
+      Get Started with AI
+    </button>
+  </div>
+</section>
+
 
       {/* Features Section */}
       <section className="features">
