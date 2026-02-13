@@ -12,7 +12,7 @@ function Dashboard() {
   const token = localStorage.getItem("token");
 
   const [chats, setChats] = useState([]);
-  const [loadingChats, setLoadingChats] = useState(true);
+  const [ setLoadingChats] = useState(true);
 
 useEffect(() => {
   const fetchChats = async () => {
