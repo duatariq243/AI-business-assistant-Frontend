@@ -13,16 +13,16 @@
   background: linear-gradient(135deg, #6b5b95, #feb236);
   color: #fff;
   text-align: center;
-  padding: 80px 20px; /* slightly smaller padding than before */
+  padding: 50px 10px; /* slightly smaller padding than before */
 }
 
 .hero h1 {
-  font-size: 2.8rem;   /* slightly smaller heading */
+  font-size: 2.3rem;   /* slightly smaller heading */
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.15rem;  /* slightly smaller text */
+  font-size: 1.13rem;  /* slightly smaller text */
   margin-bottom: 25px;
 }
 
@@ -38,7 +38,7 @@
   background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 12px 28px;   /* minor adjustment */
+  padding: 10px 25px;   /* minor adjustment */
   font-size: 1.15rem;
   border-radius: 8px;
   cursor: pointer;
@@ -52,14 +52,14 @@
 
 /* Features Section */
 .features {
-  padding: 60px 20px;  /* slightly smaller than before */
+  padding: 40px 10px;  /* slightly smaller than before */
   background-color: #f4f4f4;
   text-align: center;
 }
 
 .features h2 {
-  font-size: 2.2rem;   /* slightly smaller heading */
-  margin-bottom: 40px;
+  font-size: 1.9rem;   /* slightly smaller heading */
+  margin-bottom: 20px;
 }
 
 .feature-cards {
