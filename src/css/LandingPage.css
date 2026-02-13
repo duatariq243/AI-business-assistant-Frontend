@@ -2,39 +2,44 @@
 .landing-container {
   font-family: 'Arial', sans-serif;
   color: #333;
-  max-width: 1200px;   /* limit width */
-  margin: 0 auto;      /* center horizontally */
-  padding: 0 20px;     /* small padding on sides */
+  max-width: 2000px;  /* limit stretching on wide screens */
+  margin: 0 auto;
+  padding: 0 15px;    /* small horizontal padding */
   box-sizing: border-box;
 }
-
 
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #6b5b95, #feb236);
   color: #fff;
   text-align: center;
-  padding: clamp(60px, 10vw, 120px) 20px; /* responsive vertical padding */
+  padding: 80px 20px; /* slightly smaller padding than before */
 }
 
-
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: 2.8rem;   /* slightly smaller heading */
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  margin-bottom: 30px;
+  font-size: 1.15rem;  /* slightly smaller text */
+  margin-bottom: 25px;
 }
 
+/* Optional info text below hero */
+.hero .info-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 15px;
+}
 
+/* CTA Button */
 .cta-button {
   background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  padding: 12px 28px;   /* minor adjustment */
+  font-size: 1.15rem;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
@@ -47,63 +52,54 @@
 
 /* Features Section */
 .features {
-  padding: 80px 20px;
+  padding: 60px 20px;  /* slightly smaller than before */
   background-color: #f4f4f4;
   text-align: center;
 }
 
 .features h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
+  font-size: 2.2rem;   /* slightly smaller heading */
+  margin-bottom: 40px;
 }
 
 .feature-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
-  max-width: 1000px;  /* prevent cards from spreading too wide */
-  margin: 0 auto;
+  gap: 25px;           /* slightly smaller gap */
 }
-
 
 .card {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 25px;        /* smaller padding */
+  border-radius: 12px;  /* slightly smaller radius */
   width: 250px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* slightly lighter shadow */
   transition: transform 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px); /* smaller hover lift */
 }
 
 .card h3 {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   color: #6b5b95;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 0.95rem;   /* slightly smaller text */
 }
 
 /* CTA Section */
 .cta-section {
-  padding: 80px 20px;
+  padding: 60px 20px;   /* slightly smaller padding */
   background: #6b5b95;
   color: white;
   text-align: center;
 }
 
 .cta-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.hero .info-text {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.9);
-  margin-top: 15px;
+  font-size: 1.8rem;    /* slightly smaller */
+  margin-bottom: 25px;
 }
