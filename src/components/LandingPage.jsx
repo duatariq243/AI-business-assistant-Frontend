@@ -15,10 +15,10 @@ const LandingPage = () => {
       <section className="hero">
   <div className="hero-content">
     <h1>Grow Your Business with AI</h1>
-    <p>
-      Our AI Business Assistant helps you make smarter decisions, automate tasks,
-      and increase productivity. Let us guide your business to the next level.
-    </p>
+   <p className="info-text">
+  As you chat, you can see the analytics and progress of your business in real-time.
+</p>
+
 
     {/* New Info Text */}
     <p style={{ fontSize: "16px", color: "white", marginTop: "15px" }}>

@@ -2,25 +2,32 @@
 .landing-container {
   font-family: 'Arial', sans-serif;
   color: #333;
+  max-width: 1200px;   /* limit width */
+  margin: 0 auto;      /* center horizontally */
+  padding: 0 20px;     /* small padding on sides */
+  box-sizing: border-box;
 }
+
 
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #6b5b95, #feb236);
   color: #fff;
   text-align: center;
-  padding: 100px 20px;
+  padding: clamp(60px, 10vw, 120px) 20px; /* responsive vertical padding */
 }
 
+
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin-bottom: 30px;
 }
+
 
 .cta-button {
   background-color: #ff6f61;
@@ -55,7 +62,10 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  max-width: 1000px;  /* prevent cards from spreading too wide */
+  margin: 0 auto;
 }
+
 
 .card {
   background: white;
@@ -90,4 +100,10 @@
 .cta-section h2 {
   font-size: 2rem;
   margin-bottom: 30px;
+}
+
+.hero .info-text {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  margin-top: 15px;
 }
