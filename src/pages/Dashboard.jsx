@@ -66,7 +66,7 @@ useEffect(() => {
         {/* RIGHT – CHAT WINDOW */}
         <div className="dashboard-chatArea">
           {chatId ? (
-            <ChatWindow chatId={chatId} />
+            <ChatWindow chatId={chatId} setChats={setChats} />
           ) : (
             <div className="dashboard-emptyState">
               <h2>Select or create a chat</h2>
