@@ -15,13 +15,15 @@ function Dashboard() {
   const [ setLoadingChats] = useState(true);
 
 useEffect(() => {
-  const fetchChats = async () => {
-    const res = await getChats(token);
-    setChats(res.data);
+  const loadChats = async () => {
+    setLoadingChats(true);
+    await fetchChats();
     setLoadingChats(false);
   };
-  fetchChats();
-}, [token]);
+
+  loadChats();
+}, []);
+
 
 
   useEffect(() => {
