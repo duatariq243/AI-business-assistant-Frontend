@@ -17,7 +17,8 @@ function Dashboard() {
 useEffect(() => {
   const loadChats = async () => {
     setLoadingChats(true);
-    await fetchChats();
+    getChats(token);
+
     setLoadingChats(false);
   };
 
