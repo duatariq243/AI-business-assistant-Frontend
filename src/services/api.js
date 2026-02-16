@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ai-business-assistant-frontend.onrender.com/",
+  baseURL: "https://ai-business-assistant-backend-49hu.onrender.com",
 });
 
 // Auth endpoints
