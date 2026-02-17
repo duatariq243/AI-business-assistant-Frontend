@@ -14,16 +14,17 @@ function Dashboard() {
   const [chats, setChats] = useState([]);
   const [ setLoadingChats] = useState(true);
 
-useEffect(() => {
-  const loadChats = async () => {
-    setLoadingChats(true);
-    getChats(token);
-
+const fetchChats = async () => {
+  try {
+    setLoadingChats(true); 
+    const res = await getChats(token);
+    setChats(res.data);
+  } catch (err) {
+    console.error(err);
+  } finally {
     setLoadingChats(false);
-  };
-
-  loadChats();
-}, []);
+  }
+};
 
 
 

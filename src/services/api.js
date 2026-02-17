@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ai-business-assistant-backend-49hu.onrender.com/api",
+  baseURL: process.env.REACT_APP_API_URL,
 });
+
 
 // Auth endpoints
 export const signup = (data) => API.post("/auth/signup", data);
