@@ -117,7 +117,7 @@ function ChatSidebar({ chats, setChats }) {
     className="delete-btn"
     onClick={(e) => handleDeleteChat(chat.id, e)}
   >
-    ×
+    Delete
   </button>
 </div>
           </li>

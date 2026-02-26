@@ -6,6 +6,7 @@ import "../css/Signup.css";
 function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -13,27 +14,25 @@ function Signup() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
+    const res = await signup(formData);
+    // Instead of navigating, show a message
+    setSuccess(res.data.message);
     setError("");
-
-    try {
-      const res = await signup(formData);
-      console.log("Signup success:", res.data);
-
-      // Redirect to login after signup
-      navigate("/login");
-    } catch (err) {
-      console.error(err.response?.data);
-      setError(err.response?.data?.message || "Signup failed");
-    }
-  };
+  } catch (err) {
+    setError(err.response?.data?.message || "Signup failed");
+    setSuccess("");
+  }
+};
 
   return (
     <div className="auth-page">
       <form onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
-
-        {error && <p className="error-message">{error}</p>}
+           {success && <p className="success-message">{success}</p>}
+{error && <p className="error-message">{error}</p>}
+        
 
         <input
           type="text"

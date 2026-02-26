@@ -31,7 +31,7 @@
 }
 
 .chat-sidebar button.new-chat-btn {
-  width: 100%;
+  width: 20%;
   padding: 15px;
   margin-bottom: 20px;
   background-color: #7886c7;
@@ -120,8 +120,8 @@
   color: #800000;
 }
 .analytics-btn {
-  background-color: #6b5b95;
-  color: white;
+  background-color:orange;
+  color: black;
   border: none;
   padding: 5px 10px;
   margin-left: 5px;
