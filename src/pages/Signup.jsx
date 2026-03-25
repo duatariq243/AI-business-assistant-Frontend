@@ -18,7 +18,7 @@ function Signup() {
   try {
     const res = await signup(formData);
     // Instead of navigating, show a message
-    setSuccess(res.data.message);
+    navigate("/login");
     setError("");
   } catch (err) {
     setError(err.response?.data?.message || "Signup failed");
