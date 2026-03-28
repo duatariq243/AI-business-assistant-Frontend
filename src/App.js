@@ -12,6 +12,7 @@ import VerifyOTP from "./pages/VerifyOTP";
 
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Routes>
