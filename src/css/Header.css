@@ -23,10 +23,10 @@
 }
 
 .header .nav-buttons button {
-  padding: 15px 25px; /* bigger click area */
+  padding: 12px 22px; /* bigger click area */
   border-radius: 10px;
-  font-weight: 600;
-  font-size: 16px; /* bigger text */
+  font-weight: 400;
+  font-size: 14px; /* bigger text */
   border: none;
   cursor: pointer;
   transition: all 0.3s;
