@@ -28,17 +28,19 @@ function Login() {
     }
 
   } catch (err) {
-  const message = err.response?.data?.message;
+    console.error(err.response?.data);
 
-  if (message === "Please verify your email first") {
+    
+
+    //  IMPORTANT: handle OTP case
+    if (err.response?.status === 403) {
     navigate("/verify-otp", {
-      state: { email: formData.email }
+      state: { email: err.response.data.email }
     });
-    return;
+  } else {
+    setError(err.response?.data?.message || "Login failed");
   }
-
-  setError(message || "Login failed");
-}
+  }
 };
 
    const handleGoogleLogin = () => {
