@@ -29,25 +29,30 @@
   border: 1px solid #a9b5df;
   font-size: 14px;
 }
-
 .chat-sidebar button.new-chat-btn {
-  width: 30%;
-  padding: 15px;
-  margin-bottom: 20px;
-  background-color: #7886c7;
+  width: fit-content;
+  padding: 6px 10px;
+
+  background-color: #2d336b;
   color: white;
+
   border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 600;
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 500;
+
   cursor: pointer;
-  transition: background 0.3s;
+
+  align-self: flex-start;
+
+  margin-bottom: 6px; 
 }
 
 .chat-sidebar button.new-chat-btn:hover {
-  background-color: #2d336b;
+  background-color:  #2d336b;
+  color: white;
 }
-
 .chat-sidebar ul.chat-list {
   list-style: none;
   padding: 0;

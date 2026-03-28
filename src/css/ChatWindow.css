@@ -82,15 +82,23 @@
 }
 
 .chat-window .input-box button {
-  padding: 12px 20px;
-  background-color: #7886c7;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  background-color: #2d336b;
   color: white;
   border: none;
-  border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: background 0.3s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px; /* matches input height */
+  transition: all 0.2s ease;
+}
+
+.chat-window .input-box button:hover {
+  background-color: #3b5be0;
 }
 /* system bubble like ChatGPT */
 .bubble.system {
@@ -166,7 +174,7 @@
 
   .chat-window .input-box input,
   .chat-window .input-box button {
-    font-size: 15px;
-    padding: 10px 14px;
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }
