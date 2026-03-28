@@ -18,7 +18,8 @@ function Signup() {
   try {
     const res = await signup(formData);
     // Instead of navigating, show a message
-    navigate("/login");
+    setSuccess("OTP sent to your email");
+navigate("/verify-otp", { state: { email: formData.email } });
     setError("");
   } catch (err) {
     setError(err.response?.data?.message || "Signup failed");
@@ -26,6 +27,9 @@ function Signup() {
   }
 };
 
+const handleGoogleSignup = () => {
+  window.location.href = "http://localhost:5000/api/auth/google";
+};
   return (
     <div className="auth-page">
       <form onSubmit={handleSubmit}>
@@ -60,7 +64,24 @@ function Signup() {
         />
 
         <button type="submit">Sign Up</button>
+       {/* Divider */}
+<div className="divider">OR</div>
 
+{/* Google Signup Button */}
+<div className="google-login">
+  <button
+    type="button"
+    onClick={handleGoogleSignup}
+    className="google-btn"
+  >
+    <img
+      src="https://developers.google.com/identity/images/g-logo.png"
+      alt="Google"
+      style={{ width: "18px", height: "18px" }}
+    />
+    Sign up with Google
+  </button>
+</div>
         {/* Link to login if user already has an account */}
         <p className="signup-text">
           Already have an account?{" "}

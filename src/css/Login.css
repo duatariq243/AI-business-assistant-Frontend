@@ -70,3 +70,55 @@
 .signup-link:hover {
   color: #2d336b;
 }
+
+.divider {
+  margin: 20px 0;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  width: 40%;
+  background: #ddd;
+  position: absolute;
+  top: 50%;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.google-login {
+  margin-top: 10px;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3c4043;
+}
+
+.google-btn:hover {
+  background: #f7f8f8;
+  border-color: #c6c6c6;
+}

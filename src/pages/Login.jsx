@@ -12,24 +12,38 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
 
-    try {
-      const res = await login(formData);
-      console.log("Login success:", res.data);
+  try {
+    const res = await login(formData);
+    console.log("Login success:", res.data);
 
-      // Save JWT token in localStorage
+    // save token only if exists
+    if (res.data.token) {
       localStorage.setItem("token", res.data.token);
-
-      // Redirect to dashboard
       navigate("/dashboard");
-    } catch (err) {
-      console.error(err.response?.data);
-      setError(err.response?.data?.message || "Login failed");
+      return;
     }
-  };
+
+  } catch (err) {
+  const message = err.response?.data?.message;
+
+  if (message === "Please verify your email first") {
+    navigate("/verify-otp", {
+      state: { email: formData.email }
+    });
+    return;
+  }
+
+  setError(message || "Login failed");
+}
+};
+
+   const handleGoogleLogin = () => {
+  window.location.href = "http://localhost:5000/api/auth/google";
+};
 
   return (
     <div className="auth-page">
@@ -57,7 +71,25 @@ function Login() {
         />
 
         <button type="submit">Login</button>
+         
+         {/* Divider */}
+<div className="divider">OR</div>
 
+<div className="google-login">
+  <button
+    className="google-btn"
+    onClick={() =>
+      (window.location.href = "http://localhost:5000/api/auth/google")
+    }
+  >
+    <img
+      src="https://developers.google.com/identity/images/g-logo.png"
+      alt="Google"
+      style={{ width: "18px", height: "18px" }}
+    />
+    Sign in with Google
+  </button>
+</div>
         {/* Signup link section */}
         <p className="signup-text">
           Don't have an account?{" "}

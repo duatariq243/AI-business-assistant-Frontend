@@ -1,55 +1,58 @@
 import axios from "axios";
+
 console.log("API URL:", process.env.REACT_APP_API_URL);
 
+// Create axios instance
 const API = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
+// AUTO ATTACH TOKEN TO EVERY REQUEST
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
 
-// Auth endpoints
+  console.log("TOKEN SENT:", token); // debug
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
+
+// ================= AUTH =================
+
 export const signup = (data) => API.post("/auth/signup", data);
+
 export const login = (data) => API.post("/auth/login", data);
+export const verifyOTP = (data) => API.post("/auth/verify-otp", data);
 
-// Chat endpoints
-export const getChats = (token) =>
-  API.get("/chat", {
-    headers: { Authorization: `Bearer ${token}` }
+
+// ================= CHAT =================
+
+//  NO TOKEN PARAM NEEDED ANYMORE
+
+export const getChats = () => API.get("/chat");
+
+export const createChat = (data) => API.post("/chat", data);
+
+export const getChatMessages = (chatId) =>
+  API.get(`/chat/${chatId}`);
+
+export const sendMessage = (chatId, content) =>
+  API.post("/chat/message", {
+    chatId,
+    message: content,
   });
 
-export const createChat = (data, token) =>
-  API.post("/chat", data, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json"
-    }
-  });
+export const deleteChat = (chatId) =>
+  API.delete(`/chat/${chatId}`);
 
-export const getChatMessages = (chatId, token) =>
-  API.get(`/chat/${chatId}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
+export const renameChat = (chatId, title) =>
+  API.patch(`/chat/${chatId}/rename`, { title });
 
-export const sendMessage = (chatId, content, token) =>
-  API.post(
-    "/chat/message",
-    { chatId, message: content },
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-
-export const deleteChat = (chatId, token) =>
-  API.delete(`/chat/${chatId}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-
-export const renameChat = (chatId, title, token) =>
-  API.patch(
-    `/chat/${chatId}/rename`,
-    { title },
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-
-//  Analytics endpoint
-export const getChatAnalytics = (chatId, token) =>
-  API.get(`/chat/analytics/${chatId}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+export const getChatAnalytics = (chatId) =>
+  API.get(`/chat/analytics/${chatId}`);

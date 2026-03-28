@@ -5,6 +5,11 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LandingPage from "./components/LandingPage";
 import ProgressAnalytics from "./components/ProgressAnalytics";
+import AuthSuccess from "./pages/AuthSuccess";
+import VerifyOTP from "./pages/VerifyOTP";
+
+
+
 
 function App() {
   return (
@@ -12,6 +17,9 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/auth-success" element={<AuthSuccess />} />
+        
+<Route path="/verify-otp" element={<VerifyOTP />} />
               <Route
         path="/dashboard/:chatId/analytics"
         element={
@@ -33,7 +41,7 @@ function App() {
 
         {/* redirect root to dashboard */}
         <Route path="/" element={<LandingPage />} />
-
+        
       </Routes>
     </BrowserRouter>
   );
