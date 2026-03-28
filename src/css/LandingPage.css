@@ -2,7 +2,7 @@
 .landing-container {
   font-family: 'Arial', sans-serif;
   color: #333;
-  max-width: 2000px;  /* limit stretching on wide screens */
+  max-width: 1200px;  /* limit stretching on wide screens */
   margin: 0 auto;
   padding: 0 15px;    /* small horizontal padding */
   box-sizing: border-box;
@@ -17,12 +17,12 @@
 }
 
 .hero h1 {
-  font-size: 2.8rem;   /* slightly smaller heading */
+ font-size: clamp(1.8rem, 4vw, 2.5rem);   /* slightly smaller heading */
   margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: 1.15rem;  /* slightly smaller text */
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);  /* slightly smaller text */
   margin-bottom: 20px;
 }
 
@@ -38,8 +38,8 @@
   background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 10px 26px;   /* minor adjustment */
-  font-size: 1.15rem;
+  padding: 8px 20px;   /* minor adjustment */
+  font-size: clamp(0.9rem, 2vw, 1rem);
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
@@ -61,18 +61,16 @@
   font-size: 2.2rem;   /* slightly smaller heading */
   margin-bottom: 40px;
 }
-
 .feature-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;           /* slightly smaller gap */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .card {
   background: white;
-  padding: 25px;        /* smaller padding */
-  border-radius: 12px;  /* slightly smaller radius */
+  padding: 20px;        /* smaller padding */
+  border-radius: 10px;  /* slightly smaller radius */
   width: 250px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* slightly lighter shadow */
   transition: transform 0.2s ease;
@@ -102,4 +100,9 @@
 .cta-section h2 {
   font-size: 1.8rem;    /* slightly smaller */
   margin-bottom: 25px;
+}
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
