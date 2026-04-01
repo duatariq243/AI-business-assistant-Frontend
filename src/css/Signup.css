@@ -191,12 +191,29 @@ color: #1f2937 !important;
   transform: translateY(-2px);
 }
 @media (max-width: 480px) {
+  .auth-page {
+    padding: 16px;
+    align-items: center;
+  }
+
   .auth-page form {
-    max-width: 90%;
-    padding: 22px;
+    width: 100%;
+    max-width: 340px; /* 👈 better than 90% */
+    padding: 20px;
+    border-radius: 14px;
   }
 
   .auth-page h2 {
     font-size: 18px;
+  }
+
+  .auth-page input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .auth-page button {
+    font-size: 14px;
+    padding: 10px;
   }
 }
