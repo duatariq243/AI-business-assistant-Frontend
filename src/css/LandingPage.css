@@ -1,4 +1,27 @@
 /* Landing page container */
+/* ===== GLOBAL ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 .landing-container {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -14,16 +37,19 @@
   color: #fff;
   text-align: center;
   padding: 60px 10px; /* slightly smaller padding than before */
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .hero h1 {
   font-size: 2.8rem;   /* slightly smaller heading */
   margin-bottom: 15px;
+  animation: fadeInUp 1s ease-out;
 }
 
 .hero p {
   font-size: 1.15rem;  /* slightly smaller text */
   margin-bottom: 20px;
+  animation: fadeInUp 1.2s ease-out;
 }
 
 /* Optional info text below hero */
@@ -42,7 +68,9 @@
   font-size: 1.15rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
+
+  animation: float 3s ease-in-out infinite;
 }
 
 .cta-button:hover {
@@ -75,11 +103,14 @@
   border-radius: 12px;  /* slightly smaller radius */
   width: 250px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* slightly lighter shadow */
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .card:hover {
-  transform: translateY(-8px); /* smaller hover lift */
+   transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 .card h3 {
@@ -97,6 +128,9 @@
   background: #6b5b95;
   color: white;
   text-align: center;
+}
+.features, .cta-section {
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .cta-section h2 {
