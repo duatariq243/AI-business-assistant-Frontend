@@ -7,19 +7,40 @@ function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const { name, value } = e.target;
+
+  setFormData({ ...formData, [name]: value });
+
+  if (name === "password") {
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if (!regex.test(value)) {
+      setPasswordError(
+        "Min 8 chars, include uppercase, lowercase, number & special char"
+      );
+    } else {
+      setPasswordError("");
+    }
+  }
+};
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+
+  if (passwordError) {
+    setError("Please fix password requirements");
+    return;
+  }
+
   try {
     const res = await signup(formData);
-    // Instead of navigating, show a message
     setSuccess("OTP sent to your email");
-navigate("/verify-otp", { state: { email: formData.email } });
+    navigate("/verify-otp", { state: { email: formData.email } });
     setError("");
   } catch (err) {
     setError(err.response?.data?.message || "Signup failed");
@@ -63,6 +84,9 @@ const handleGoogleSignup = () => {
           onChange={handleChange}
           required
         />
+        {passwordError && (
+  <p className="error-message">{passwordError}</p>
+)}
 
         <button type="submit">Sign Up</button>
        {/* Divider */}
